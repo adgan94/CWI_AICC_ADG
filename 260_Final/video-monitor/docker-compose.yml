@@ -1,0 +1,14 @@
+services:
+  vision_engine:
+    build: .
+    container_name: vision_engine
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    devices:
+      - /dev/video0:/dev/video0
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8080:8080"
+    restart: always
